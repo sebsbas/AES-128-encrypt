@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8 text-center">
+        <h1 class="mb-4">Implementación AES-128 Propietario</h1>
+        <p class="lead">Esta implementación usa un polinomio irreducible personalizado: x<sup>8</sup> + x<sup>6</sup> + x<sup>4</sup> + x<sup>3</sup> + x<sup>2</sup> + x + 1</p>
+
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mt-5">
+            <a href="{{ url_for('encrypt') }}" class="btn btn-primary btn-lg px-4 gap-3">Cifrar</a>
+            <a href="{{ url_for('decrypt') }}" class="btn btn-success btn-lg px-4">Descifrar</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

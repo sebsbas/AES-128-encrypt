@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <h2 class="mb-4">Descifrar Mensaje</h2>
+
+        {% if error %}
+        <div class="alert alert-danger">{{ error }}</div>
+        {% endif %}
+
+        <form method="POST">
+            <div class="mb-3">
+                <label class="form-label">Tipo de Clave:</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="key_type" id="key_hex" value="hex" checked>
+                    <label class="form-check-label" for="key_hex">Hexadecimal (32 dígitos, sin 0x)</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="key_type" id="key_text" value="text">
+                    <label class="form-check-label" for="key_text">Texto Plano (exactamente 16 caracteres)</label>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="key" class="form-label">Clave:</label>
+                <input type="text" class="form-control" id="key" name="key" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Tipo de Mensaje:</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="message_type" id="msg_hex" value="hex" checked>
+                    <label class="form-check-label" for="msg_hex">Hexadecimal (sin 0x)</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="message_type" id="msg_text" value="text">
+                    <label class="form-check-label" for="msg_text">Texto Plano</label>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="message" class="form-label">Texto Cifrado:</label>
+                <textarea class="form-control" id="message" name="message" rows="3" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-success">Descifrar</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
